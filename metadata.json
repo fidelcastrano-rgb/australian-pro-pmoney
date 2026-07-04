@@ -1,0 +1,8 @@
+{
+  "name": "Remix: AuraStore Checkout",
+  "description": "Premium Next.js checkout experience with Supabase Postgres and Prisma ORM integration, coupled with a back-office admin analytics dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
