@@ -18,15 +18,15 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Australian Prop Money - Premium Cinema Props",
-  description: "Highly detailed reproductions of next-generation polymer Australian banknotes for film and television.",
+  title: "Australian Prop Money | Prop Money Australia & AU Prop Money Supplier",
+  description: "Buy high-quality Australian prop money and prop money Australia for film, photography, and creative projects. Realistic AU prop money designed for professional use.",
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://australianpropmoney.com.au'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: "Australian Prop Money - Premium Cinema Props",
-    description: "Highly detailed reproductions of next-generation polymer Australian banknotes for film and television.",
+    title: "Australian Prop Money | Prop Money Australia & AU Prop Money Supplier",
+    description: "Buy high-quality Australian prop money and prop money Australia for film, photography, and creative projects. Realistic AU prop money designed for professional use.",
     url: '/',
     siteName: 'Australian Prop Money',
     locale: 'en_AU',
@@ -34,8 +34,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Australian Prop Money - Premium Cinema Props',
-    description: 'Highly detailed reproductions of next-generation polymer Australian banknotes for film and television.',
+    title: 'Australian Prop Money | Prop Money Australia & AU Prop Money Supplier',
+    description: 'Buy high-quality Australian prop money and prop money Australia for film, photography, and creative projects. Realistic AU prop money designed for professional use.',
   },
   icons: {
     icon: "/logoo.webp",
