@@ -158,7 +158,7 @@ export default function CheckoutPage() {
         <div className="flex items-center gap-2 text-xs text-slate-500 mb-8">
           <Link href="/" className="hover:text-emerald-600 transition-colors">Home</Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
-          <Link href="/product/buy-prop-money-old-currency-5-australian-dollar-notes" className="hover:text-emerald-600 transition-colors">Product</Link>
+          <Link href="/product/buy-prop-money-new-5-australian-dollar-notes" className="hover:text-emerald-600 transition-colors">Product</Link>
           <ChevronRight className="w-3.5 h-3.5 text-slate-300" />
           <span className="text-slate-900 font-semibold">One-Page Checkout</span>
         </div>

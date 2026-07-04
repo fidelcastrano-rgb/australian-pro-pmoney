@@ -35,20 +35,6 @@ export const categories: Category[] = [
 export const products: Product[] = [
   // Old Notes (Classic Series)
   {
-    id: "buy-prop-money-old-currency-5-australian-dollar-notes",
-    name: "Buy Prop Money Old Currency $5 Australian Dollar Notes - Prop Money Note",
-    description: "Buy prop money 5 Australian Dollar notes. High-quality replicas with holograms, watermarks, and UV features for educational training, props, and financial system testing.",
-    image: "https://picsum.photos/seed/ausold5/800/600",
-    categoryId: "old-notes",
-    variations: [
-      { name: "1 Stack ($2,500)", price: 200 },
-      { name: "5 Stacks ($12,500)", price: 850 },
-      { name: "10 Stacks ($25,000)", price: 1600 },
-      { name: "50 Stacks ($125,000)", price: 7500 },
-      { name: "100 Stacks ($250,000)", price: 14000 }
-    ]
-  },
-  {
     id: "buy-prop-money-old-currency-10-australian-banknotes",
     name: "Buy Prop Money Old Currency $10 Australian banknotes - Prop Money Note",
     description: "Buy prop money 10 Australian Dollar notes. High-quality replicas with UV markings, holograms, and security threads for educational training, props, and financial system testing.",
