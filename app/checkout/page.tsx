@@ -36,6 +36,7 @@ export default function CheckoutPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isRedirecting, setIsRedirecting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [submitMode, setSubmitMode] = useState<"standard" | "whatsapp">("standard");
 
   // Determine shipping cost based on shipping method selection
   const getShippingCost = () => {
@@ -47,9 +48,8 @@ export default function CheckoutPage() {
   const shippingCost = getShippingCost();
   const totalAmount = cartSubtotal + shippingCost;
 
-  // Form Submission Handler
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  // Unified Order Processing logic
+  const processOrder = async (mode: "standard" | "whatsapp") => {
     setErrorMessage("");
 
     if (items.length === 0) {
@@ -69,8 +69,10 @@ export default function CheckoutPage() {
     }
 
     setIsSubmitting(true);
+    setSubmitMode(mode);
 
     try {
+      const actualPaymentMethod = mode === "whatsapp" ? "WhatsApp" : paymentMethod;
       const response = await fetch("/api/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -87,7 +89,7 @@ export default function CheckoutPage() {
           postalCode,
           shippingMethod,
           shippingCost,
-          paymentMethod,
+          paymentMethod: actualPaymentMethod,
           items, // Pass full items list
           total: totalAmount,
         }),
@@ -96,7 +98,7 @@ export default function CheckoutPage() {
       const data = await response.json();
 
       if (response.ok && data.success) {
-        if (paymentMethod === "WhatsApp") {
+        if (mode === "whatsapp") {
           const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+447341056054";
           const whatsappNumber = rawNumber.replace(/[^0-9+]/g, "");
           const itemsText = items.map(item => `- ${item.product.name} (${item.variation.name}) x ${item.quantity} - $${(item.variation.price * item.quantity).toFixed(2)}`).join("\n");
@@ -119,6 +121,17 @@ export default function CheckoutPage() {
       setErrorMessage("Unable to connect to checkout server. Please try again later.");
       setIsSubmitting(false);
     }
+  };
+
+  // Form Submission Handler
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    await processOrder("standard");
+  };
+
+  // WhatsApp Submission Handler
+  const handleWhatsAppSubmit = async () => {
+    await processOrder("whatsapp");
   };
 
   // If loading or server-side rendering, return simple card
@@ -421,28 +434,20 @@ export default function CheckoutPage() {
                 <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">4</span>
                 Payment Method
               </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 mb-6">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
                 
-                {["Bitcoin (BTC)", "USDT", "Ethereum (ETH)", "PayID", "WhatsApp"].map((pMethod) => (
+                {["Bitcoin (BTC)", "USDT", "Ethereum (ETH)", "PayID"].map((pMethod) => (
                   <button
                     key={pMethod}
                     type="button"
                     onClick={() => setPaymentMethod(pMethod)}
                     className={`p-4 rounded-xl border text-center font-bold text-xs transition-all flex flex-col items-center gap-2 cursor-pointer ${
                       paymentMethod === pMethod
-                        ? pMethod === "WhatsApp"
-                          ? "border-emerald-500 bg-emerald-50 text-emerald-950 ring-2 ring-emerald-500/10"
-                          : "border-emerald-600 bg-emerald-50/50 text-emerald-950 ring-2 ring-emerald-600/10"
+                        ? "border-emerald-600 bg-emerald-50/50 text-emerald-950 ring-2 ring-emerald-600/10"
                         : "border-slate-200 bg-white hover:border-slate-300 text-slate-500"
                     }`}
                   >
-                    {pMethod === "WhatsApp" ? (
-                      <svg className={`w-5 h-5 ${paymentMethod === pMethod ? "text-[#25D366]" : "text-slate-400"}`} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.703 1.458h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                      </svg>
-                    ) : (
-                      <CreditCard className={`w-5 h-5 ${paymentMethod === pMethod ? "text-emerald-600" : "text-slate-400"}`} />
-                    )}
+                    <CreditCard className={`w-5 h-5 ${paymentMethod === pMethod ? "text-emerald-600" : "text-slate-400"}`} />
                     <span>{pMethod}</span>
                   </button>
                 ))}
@@ -453,15 +458,7 @@ export default function CheckoutPage() {
               <div id="payment-instruction-banner" className="bg-amber-50 border border-amber-200 text-amber-950 rounded-xl p-4 flex gap-3 text-xs leading-relaxed">
                 <Info className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
                 <span>
-                  {paymentMethod === "WhatsApp" ? (
-                    <>
-                      <strong>WHATSAPP CHECKOUT:</strong> You will be instantly redirected to WhatsApp to secure payment instruction details with our media relations specialists. Your order proposal will be logged in parallel!
-                    </>
-                  ) : (
-                    <>
-                      <strong>NOTICE:</strong> Payment instructions will be emailed to you after we review your order. Please do not send payment until you receive those instructions.
-                    </>
-                  )}
+                  <strong>NOTICE:</strong> Payment instructions will be emailed to you after we review your order. Please do not send payment until you receive those instructions.
                 </span>
               </div>
             </div>
@@ -536,31 +533,41 @@ export default function CheckoutPage() {
                 id="submit-checkout-btn"
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full font-bold py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-2 text-xs uppercase tracking-wider shadow-lg cursor-pointer ${
-                  paymentMethod === "WhatsApp"
-                    ? "bg-[#25D366] hover:bg-[#20ba5a] text-white shadow-emerald-950/20"
-                    : "bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-950/30"
-                } disabled:bg-slate-700 disabled:cursor-not-allowed border-0`}
+                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-2 text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/30 disabled:bg-slate-700 disabled:cursor-not-allowed border-0 cursor-pointer"
               >
-                {isSubmitting ? (
-                  <span>
-                    {paymentMethod === "WhatsApp" ? "Opening WhatsApp..." : "Logging Order Proposal..."}
-                  </span>
+                {isSubmitting && submitMode === "standard" ? (
+                  <span>Logging Order Proposal...</span>
                 ) : (
                   <>
-                    {paymentMethod === "WhatsApp" ? (
-                      <>
-                        <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.703 1.458h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-                        </svg>
-                        <span>Send Order via WhatsApp</span>
-                      </>
-                    ) : (
-                      <>
-                        <Mail className="w-4 h-4" />
-                        <span>Submit Order for Review</span>
-                      </>
-                    )}
+                    <Mail className="w-4 h-4" />
+                    <span>Submit Order for Review</span>
+                  </>
+                )}
+              </button>
+
+              {/* Or Option */}
+              <div className="flex items-center my-4 select-none">
+                <div className="flex-grow border-t border-slate-800"></div>
+                <span className="px-3 text-[10px] text-slate-500 font-black uppercase tracking-widest">OR</span>
+                <div className="flex-grow border-t border-slate-800"></div>
+              </div>
+
+              {/* WhatsApp Checkout Button */}
+              <button
+                id="whatsapp-direct-checkout-btn"
+                type="button"
+                onClick={handleWhatsAppSubmit}
+                disabled={isSubmitting}
+                className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-4 px-6 rounded-xl transition-colors flex items-center justify-center gap-2 text-xs uppercase tracking-wider shadow-lg shadow-emerald-950/20 disabled:bg-slate-700 disabled:cursor-not-allowed border-0 cursor-pointer"
+              >
+                {isSubmitting && submitMode === "whatsapp" ? (
+                  <span>Opening WhatsApp...</span>
+                ) : (
+                  <>
+                    <svg className="w-4.5 h-4.5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.746.953 3.71 1.455 5.703 1.458h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
+                    <span>Place Order via WhatsApp</span>
                   </>
                 )}
               </button>
