@@ -355,24 +355,31 @@ export default function VideoGalleryPage() {
               })}
             </div>
 
-            {/* Client Callout Card */}
-            <div className="bg-slate-900/40 border border-slate-800/80 rounded-xl p-5 text-center">
-              <span className="text-[9px] font-bold tracking-widest text-emerald-400 bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-800 uppercase inline-block mb-2">
-                Client Trust
+            {/* On-Set Camera & Lighting Guide */}
+            <div className="bg-slate-900/40 border border-slate-800/80 rounded-xl p-5" id="camera-lighting-tips-box">
+              <span className="text-[9px] font-bold tracking-widest text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20 uppercase inline-block mb-3 font-mono">
+                Production Tip
               </span>
-              <p className="text-xs text-slate-300 font-medium">
-                Want custom close-ups of specific denominations or quantities?
+              <h4 className="font-extrabold text-sm text-white uppercase tracking-tight mb-2">
+                On-Set Lighting & Focus Tips
+              </h4>
+              <p className="text-[11px] text-slate-400 leading-relaxed mb-3">
+                To capture the ultimate realism on camera with our polymer banknotes:
               </p>
-              <p className="text-[11px] text-slate-500 mt-1 leading-relaxed">
-                Contact our customer desk to schedule a personalized video or live video call from our production press.
-              </p>
-              <Link 
-                href="/contact" 
-                className="mt-4 inline-flex items-center gap-1.5 text-xs text-white font-extrabold hover:text-emerald-400 transition-colors uppercase tracking-wider bg-slate-800/80 hover:bg-slate-800 px-4 py-2 rounded-lg border border-slate-700/80"
-              >
-                <span>Request Custom Video</span>
-                <ExternalLink className="w-3 h-3" />
-              </Link>
+              <ul className="text-[10px] text-slate-400 space-y-2.5 list-none pl-0">
+                <li className="flex gap-2 items-start">
+                  <span className="text-emerald-500 font-bold shrink-0">&bull;</span>
+                  <span><strong>Defuse Hot Spotlights:</strong> Standard high-key backlights look excellent, but try defusing intense overhead panels to reduce any micro-shine on clear plastic windows.</span>
+                </li>
+                <li className="flex gap-2 items-start">
+                  <span className="text-emerald-500 font-bold shrink-0">&bull;</span>
+                  <span><strong>Shallow Depth of Field:</strong> Shooting at f/1.8 to f/2.8 isolates the notes perfectly in close-ups while letting backgrounds melt away for a high-budget aesthetic.</span>
+                </li>
+                <li className="flex gap-2 items-start">
+                  <span className="text-emerald-500 font-bold shrink-0">&bull;</span>
+                  <span><strong>Tactile Crinkling:</strong> Gently crunching a few notes before tossing them adds authentic shadows and micro-creases that highlight their premium elasticity.</span>
+                </li>
+              </ul>
             </div>
 
           </div>
