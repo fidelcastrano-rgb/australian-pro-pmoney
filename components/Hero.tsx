@@ -24,11 +24,11 @@ export function Hero() {
             Professional Cinema Prop Banknotes
           </span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight mb-6 uppercase tracking-tight">
-            Premium Replica <br />
-            <span className="text-emerald-500 italic">Australian Money</span>
+            Premium <span className="text-emerald-500 italic">Australian Prop Money</span> <br />
+            For Cinema & Production
           </h1>
           <p className="text-slate-300 text-lg md:text-xl leading-relaxed mb-8 max-w-lg">
-            High-fidelity, camera-optimized Australian prop banknote reproductions designed exclusively for motion pictures, television, theatrical productions, and commercial training.
+            High-fidelity, camera-optimized Australian prop money reproductions designed exclusively for motion pictures, television, theatrical productions, and commercial training.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link 

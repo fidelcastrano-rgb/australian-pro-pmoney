@@ -134,7 +134,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Choose Our AU Prop Money */}
+      {/* Why Choose Our Australian Prop Money */}
       <section id="why-choose-us" className="py-20 bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 md:px-10">
           <div className="text-center mb-16">
@@ -142,11 +142,11 @@ export default function Home() {
               Unrivaled Quality
             </span>
             <h2 className="text-3xl font-extrabold tracking-tight uppercase italic text-white">
-              Why Choose Our AU Prop Money?
+              Why Choose Our Australian Prop Money?
             </h2>
             <div className="w-16 h-1 bg-amber-500 mx-auto mt-4 rounded-full"></div>
             <p className="text-slate-400 max-w-2xl mx-auto text-sm mt-6 leading-relaxed">
-              Our AU prop money stands out because of its realistic design and production quality. We focus on delivering props that enhance visual storytelling without compromising safety or compliance.
+              Our premium Australian prop money stands out because of its realistic design and production quality. We focus on delivering props that enhance visual storytelling without compromising safety or compliance.
             </p>
           </div>
 
@@ -200,17 +200,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Order Prop Money Australia Today Call to Action */}
+      {/* Order Australian Prop Money Today Call to Action */}
       <section id="order-today-cta" className="py-16 bg-white border-b border-slate-100">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <span className="text-emerald-600 font-mono text-xs uppercase tracking-widest bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full inline-block mb-3">
             Get Started
           </span>
           <h2 className="text-2xl md:text-3xl font-extrabold text-slate-900 uppercase italic tracking-tight mb-4">
-            Order Prop Money Australia Today
+            Order Premium Australian Prop Money Today
           </h2>
           <p className="text-slate-600 text-xs max-w-xl mx-auto leading-relaxed mb-8">
-            If you are searching for reliable prop money Australia, you are in the right place. Select the perfect denominations, bundle sizes, and series of replica banknotes below to elevate the realism of your next creative endeavor.
+            If you are searching for reliable, premium-grade Australian prop money, you are in the right place. Select the perfect denominations, bundle sizes, and series of replica banknotes below to elevate the realism of your next creative endeavor.
           </p>
           <a
             href="#shop"
