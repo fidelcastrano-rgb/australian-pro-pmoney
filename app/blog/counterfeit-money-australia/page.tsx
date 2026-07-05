@@ -18,8 +18,41 @@ export const metadata: Metadata = {
 };
 
 export default function CounterfeitMoneyAustraliaPage() {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.australianpropmoney.com.au';
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Counterfeit Money Australia: Corporate Risk & Polymer Engineering",
+    "description": "Manage counterfeit money risk in Australia. Explore modern currency fraud trends, scientific polymer banknote engineering, and advanced UV detection equipment.",
+    "image": `${baseUrl}/uv_counterfeit_detector.jpg`,
+    "datePublished": "2026-07-05T12:00:00+10:00",
+    "dateModified": "2026-07-05T12:00:00+10:00",
+    "author": {
+      "@type": "Organization",
+      "name": "Australian Prop Money Editorial Team",
+      "url": baseUrl
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Australian Prop Money",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${baseUrl}/logoo.webp`
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${baseUrl}/blog/counterfeit-money-australia`
+    }
+  };
+
   return (
     <div id="counterfeit-money-australia-article" className="bg-slate-50 min-h-screen text-slate-800 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
+      
       
       {/* Article Navigation / Breadcrumbs */}
       <div className="max-w-4xl mx-auto px-6 pt-8">

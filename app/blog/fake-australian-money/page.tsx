@@ -17,8 +17,41 @@ export const metadata: Metadata = {
 };
 
 export default function FakeAustralianMoneyPage() {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.australianpropmoney.com.au';
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Fake Australian Money: Detection, Legal Replicas & RBA/AFP Compliance",
+    "description": "Understand the security features of Australian polymer banknotes, how to spot a fake fifty dollar note, and legal rules for replica play money in Australia.",
+    "image": `${baseUrl}/australian_polymer_note.jpg`,
+    "datePublished": "2026-07-05T12:00:00+10:00",
+    "dateModified": "2026-07-05T12:00:00+10:00",
+    "author": {
+      "@type": "Organization",
+      "name": "Australian Prop Money Editorial Team",
+      "url": baseUrl
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Australian Prop Money",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${baseUrl}/logoo.webp`
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${baseUrl}/blog/fake-australian-money`
+    }
+  };
+
   return (
     <div id="fake-australian-money-guide-article" className="bg-slate-50 min-h-screen text-slate-800 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
+      
       
       {/* Article Navigation / Breadcrumbs */}
       <div className="max-w-4xl mx-auto px-6 pt-8">

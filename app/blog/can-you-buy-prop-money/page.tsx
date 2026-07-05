@@ -13,8 +13,41 @@ export const metadata: Metadata = {
 };
 
 export default function CanYouBuyPropMoneyPage() {
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.australianpropmoney.com.au';
+  const blogSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Can You Buy Prop Money Legally? - Complete Legal Guide",
+    "description": "Is it legal to buy and use movie prop money? Learn the Secret Service guidelines, size requirements, printing laws, and safety protocols for replica notes.",
+    "image": `${baseUrl}/heero.jpg`,
+    "datePublished": "2026-07-05T12:00:00+10:00",
+    "dateModified": "2026-07-05T12:00:00+10:00",
+    "author": {
+      "@type": "Organization",
+      "name": "Australian Prop Money Editorial Team",
+      "url": baseUrl
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Australian Prop Money",
+      "logo": {
+        "@type": "ImageObject",
+        "url": `${baseUrl}/logoo.webp`
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `${baseUrl}/blog/can-you-buy-prop-money`
+    }
+  };
+
   return (
     <div id="prop-money-guide-article" className="bg-slate-50 min-h-screen text-slate-800 pb-20">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogSchema) }}
+      />
+      
       
       {/* Article Navigation / Breadcrumbs */}
       <div className="max-w-4xl mx-auto px-6 pt-8">
