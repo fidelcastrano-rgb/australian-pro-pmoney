@@ -34,6 +34,7 @@ export default function CheckoutPage() {
   const [paymentMethod, setPaymentMethod] = useState("Bitcoin (BTC)");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isRedirecting, setIsRedirecting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
   // Determine shipping cost based on shipping method selection
@@ -106,6 +107,7 @@ export default function CheckoutPage() {
         }
 
         // Clear cart and redirect
+        setIsRedirecting(true);
         clearCart();
         router.push(`/checkout/success?orderNumber=${data.orderNumber}`);
       } else {
@@ -124,6 +126,23 @@ export default function CheckoutPage() {
     return (
       <div className="py-24 bg-slate-50 min-h-screen flex items-center justify-center">
         <div className="text-slate-500 font-semibold text-sm">Loading checkout...</div>
+      </div>
+    );
+  }
+
+  // If redirecting to success page, show loading state instead of empty cart message
+  if (isRedirecting) {
+    return (
+      <div className="py-24 bg-slate-50 min-h-screen flex items-center justify-center px-6">
+        <div className="max-w-md w-full bg-white border border-slate-200 rounded-2xl p-8 text-center shadow-lg animate-in fade-in duration-300">
+          <div className="w-16 h-16 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-6 border border-emerald-100">
+            <div className="w-8 h-8 border-4 border-emerald-600 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+          <h2 className="text-xl font-bold text-slate-900 mb-2 uppercase tracking-tight">Securing Order</h2>
+          <p className="text-slate-500 text-xs leading-relaxed">
+            Please wait while we log your cinema prop order proposal and redirect you to the confirmation page...
+          </p>
+        </div>
       </div>
     );
   }
