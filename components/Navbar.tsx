@@ -45,6 +45,8 @@ export function Navbar() {
           <Link href="/categories" className="hover:text-emerald-600 transition-colors">Categories</Link>
           <Link href="/about" className="hover:text-emerald-600 transition-colors">About Us</Link>
           <Link href="/faq" className="hover:text-emerald-600 transition-colors">FAQs</Link>
+          <Link href="/blog" className="hover:text-emerald-600 transition-colors">Blog</Link>
+          <Link href="/gallery" className="hover:text-emerald-600 transition-colors">Videos</Link>
           <Link href="/contact" className="hover:text-emerald-600 transition-colors">Contact</Link>
         </div>
 
@@ -83,6 +85,8 @@ export function Navbar() {
           <Link href="/categories" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">Categories</Link>
           <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">About Us</Link>
           <Link href="/faq" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">FAQs</Link>
+          <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">Blog</Link>
+          <Link href="/gallery" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">Videos</Link>
           <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">Contact</Link>
         </div>
       )}

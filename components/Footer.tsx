@@ -30,6 +30,8 @@ export function Footer() {
             <li><Link href="/#shop" className="hover:text-emerald-400 transition-colors">Prop Shop</Link></li>
             <li><Link href="/about" className="hover:text-emerald-400 transition-colors">About Us</Link></li>
             <li><Link href="/faq" className="hover:text-emerald-400 transition-colors">FAQs</Link></li>
+            <li><Link href="/blog" className="hover:text-emerald-400 transition-colors">Blog</Link></li>
+            <li><Link href="/gallery" className="hover:text-emerald-400 transition-colors">Video Gallery</Link></li>
             <li><Link href="/contact" className="hover:text-emerald-400 transition-colors">Contact Us</Link></li>
           </ul>
         </div>
