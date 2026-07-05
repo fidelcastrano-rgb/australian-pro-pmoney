@@ -88,9 +88,9 @@ export async function POST(req: NextRequest) {
     // 2. Dispatch Emails via Resend if configured
     const resend = getResendClient();
     const emailFrom = process.env.EMAIL_FROM || "onboarding@resend.dev";
-    const emailAdmin = process.env.EMAIL_ADMIN || "admin@auspropmoney.com";
+    const emailAdmin = process.env.EMAIL_ADMIN || "order@australianpropmoney.com.au";
 
-    const itemsHtml = items
+    const itemsMarkupString = items
       .map(
         (item: any) => `
       <tr>
@@ -146,7 +146,7 @@ export async function POST(req: NextRequest) {
                     </tr>
                   </thead>
                   <tbody>
-                    ${itemsHtml}
+                    ${itemsMarkupString}
                     <tr style="background-color: #f8fafc; font-weight: bold;">
                       <td colspan="2" style="padding: 10px; border-top: 2px solid #cbd5e1; font-size: 13px;">Shipping (${shippingMethod})</td>
                       <td style="padding: 10px; border-top: 2px solid #cbd5e1; text-align: right; font-size: 13px;">$${parseFloat(shippingCost).toFixed(2)}</td>
@@ -220,7 +220,7 @@ export async function POST(req: NextRequest) {
                     </tr>
                   </thead>
                   <tbody>
-                    ${itemsHtml}
+                    ${itemsMarkupString}
                   </tbody>
                 </table>
 

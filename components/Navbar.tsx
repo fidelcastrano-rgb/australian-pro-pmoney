@@ -214,7 +214,7 @@ export function Navbar() {
               
               <button
                 onClick={() => {
-                  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+61480081373";
+                  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+447341056054";
                   const whatsappNumber = rawNumber.replace(/[^0-9+]/g, "");
                   const itemsText = items.map(item => `- ${item.product.name} (${item.variation.name}) x ${item.quantity} - $${(item.variation.price * item.quantity).toFixed(2)}`).join("\n");
                   const message = `Hello! I would like to quickly purchase the following prop banknotes from your website:\n\n${itemsText}\n\n*Total Subtotal*: $${cartSubtotal.toFixed(2)} AUD\n\nPlease send me payment instructions!`;

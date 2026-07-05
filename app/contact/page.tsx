@@ -13,8 +13,9 @@ export default function ContactPage() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+61480081373";
+  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+447341056054";
   const whatsappNumber = rawNumber.replace(/[^0-9+]/g, "");
 
   const handleInputChange = (
@@ -24,15 +25,32 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMsg("");
 
-    // Simulate safe API dispatch / storage
-    setTimeout(() => {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        const data = await response.json();
+        setErrorMsg(data.error || "Failed to submit your inquiry. Please try again.");
+      }
+    } catch (err) {
+      console.error("Submission Error:", err);
+      setErrorMsg("An unexpected error occurred. Please try again later.");
+    } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
-    }, 1200);
+    }
   };
 
   const handleWhatsAppContact = () => {
@@ -76,29 +94,17 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-xs text-slate-400 uppercase tracking-wider">Secure Email</h4>
-                    <p className="text-sm text-slate-100 font-medium mt-1">press@auspropmoney.com</p>
+                    <p className="text-sm text-slate-100 font-medium mt-1">order@australianpropmoney.com.au</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-emerald-500 shrink-0 border border-slate-700">
-                    <Phone className="w-5 h-5" />
+                    <MessageSquare className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-xs text-slate-400 uppercase tracking-wider">Direct Studio Hotline</h4>
-                    <p className="text-sm text-slate-100 font-medium mt-1">+61 480 081 373</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-emerald-500 shrink-0 border border-slate-700">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-xs text-slate-400 uppercase tracking-wider">Melbourne Press Room</h4>
-                    <p className="text-sm text-slate-100 font-medium mt-1">
-                      Bourke Street, Melbourne, Victoria 3000, Australia
-                    </p>
+                    <h4 className="font-bold text-xs text-slate-400 uppercase tracking-wider">Direct WhatsApp Line</h4>
+                    <p className="text-sm text-slate-100 font-medium mt-1">+44 7341 056054</p>
                   </div>
                 </div>
               </div>
@@ -168,6 +174,12 @@ export default function ContactPage() {
                   Direct Secure Inquiry Form
                 </h2>
                 <div className="w-12 h-1 bg-amber-500 rounded-full mb-6"></div>
+
+                {errorMsg && (
+                  <div className="bg-red-50 text-red-600 border border-red-200 text-xs p-3 rounded-lg mb-4">
+                    {errorMsg}
+                  </div>
+                )}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>

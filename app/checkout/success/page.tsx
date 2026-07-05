@@ -7,7 +7,7 @@ import Link from "next/link";
 
 function SuccessContent() {
   const searchParams = useSearchParams();
-  const orderNumber = searchParams.get("orderNumber") || "APM-XXXXXX";
+  const orderNumber = searchParams?.get("orderNumber") || "APM-XXXXXX";
 
   return (
     <div id="checkout-success-view" className="max-w-xl w-full bg-white border border-slate-200 rounded-2xl p-8 md:p-10 shadow-lg text-center animate-in fade-in zoom-in-95 duration-300">
