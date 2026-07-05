@@ -137,8 +137,19 @@ export function Navbar() {
           ) : (
             items.map((item, index) => (
               <div key={`${item.product.id}-${item.variation.name}-${index}`} className="flex gap-4 border-b border-slate-100 pb-6 last:border-0">
-                <div className="relative w-20 h-14 bg-slate-50 rounded border border-slate-100 overflow-hidden shrink-0 flex items-center justify-center">
-                  <div className="text-xs font-bold text-slate-400">PROP</div>
+                <div className="relative w-20 h-14 bg-slate-50 rounded border border-slate-200 overflow-hidden shrink-0 flex items-center justify-center">
+                  {item.product.image ? (
+                    <Image
+                      src={item.product.image}
+                      alt={item.product.name}
+                      fill
+                      sizes="80px"
+                      className="object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  ) : (
+                    <div className="text-xs font-bold text-slate-400">PROP</div>
+                  )}
                 </div>
                 <div className="flex-1 min-w-0">
                   <h4 className="font-bold text-slate-800 text-sm truncate">{item.product.name}</h4>

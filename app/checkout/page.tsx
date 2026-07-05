@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { useCart } from "@/context/CartContext";
 import { ShoppingBag, CreditCard, ChevronRight, Truck, Info, ShieldCheck, Mail } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function CheckoutPage() {
   const router = useRouter();
@@ -459,10 +460,26 @@ export default function CheckoutPage() {
               {/* Items List */}
               <div className="flex flex-col gap-5 max-h-96 overflow-y-auto mb-6 pr-2">
                 {items.map((item, idx) => (
-                  <div key={`${item.product.id}-${idx}`} className="flex justify-between gap-4 text-xs">
-                    <div>
-                      <h4 className="font-bold text-white leading-snug">{item.product.name}</h4>
-                      <p className="text-[10px] text-slate-400 mt-0.5">{item.variation.name} &bull; Qty: {item.quantity}</p>
+                  <div key={`${item.product.id}-${idx}`} className="flex justify-between gap-4 items-center text-xs">
+                    <div className="flex gap-3 items-center min-w-0">
+                      <div className="relative w-12 h-9 bg-slate-800 rounded border border-slate-700/50 overflow-hidden shrink-0 flex items-center justify-center">
+                        {item.product.image ? (
+                          <Image
+                            src={item.product.image}
+                            alt={item.product.name}
+                            fill
+                            sizes="48px"
+                            className="object-cover"
+                            referrerPolicy="no-referrer"
+                          />
+                        ) : (
+                          <span className="text-[9px] font-bold text-slate-500">PROP</span>
+                        )}
+                      </div>
+                      <div className="min-w-0">
+                        <h4 className="font-bold text-white leading-snug truncate">{item.product.name}</h4>
+                        <p className="text-[10px] text-slate-400 mt-0.5">{item.variation.name} &bull; Qty: {item.quantity}</p>
+                      </div>
                     </div>
                     <span className="font-extrabold text-slate-200 shrink-0">
                       ${(item.variation.price * item.quantity).toFixed(2)}
