@@ -17,7 +17,7 @@ export async function generateMetadata(
     };
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://australianpropmoney.com.au';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.australianpropmoney.com.au';
   const url = `${baseUrl}/product/${product.id}`;
 
   return {
@@ -64,7 +64,7 @@ export default async function ProductLayout({
 }) {
   const resolvedParams = await params;
   const product = products.find((p) => p.id === resolvedParams.id);
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://australianpropmoney.com.au';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.australianpropmoney.com.au';
   
   const productSchema = product ? {
     "@context": "https://schema.org/",

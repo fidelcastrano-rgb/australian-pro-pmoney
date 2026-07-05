@@ -20,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Australian Prop Money | Prop Money Australia & AU Prop Money Supplier",
   description: "Buy high-quality Australian prop money and prop money Australia for film, photography, and creative projects. Realistic AU prop money designed for professional use.",
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://australianpropmoney.com.au'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://www.australianpropmoney.com.au'),
   alternates: {
     canonical: '/',
   },
@@ -51,8 +51,8 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Australian Prop Money",
-    "url": "https://australianpropmoney.com.au",
-    "logo": "https://australianpropmoney.com.au/logoo.webp",
+    "url": "https://www.australianpropmoney.com.au",
+    "logo": "https://www.australianpropmoney.com.au/logoo.webp",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+61480081373",
@@ -64,10 +64,10 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Australian Prop Money",
-    "url": "https://australianpropmoney.com.au",
+    "url": "https://www.australianpropmoney.com.au",
     "potentialAction": {
       "@type": "SearchAction",
-      "target": "https://australianpropmoney.com.au/?q={search_term_string}",
+      "target": "https://www.australianpropmoney.com.au/?q={search_term_string}",
       "query-input": "required name=search_term_string"
     }
   };

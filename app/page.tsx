@@ -26,7 +26,7 @@ export default function Home() {
                   Looking for Australian prop money that looks realistic, professional, and perfect for film, photography, training, or entertainment use? We provide premium-grade prop money Australia customers trust for high-quality visual production and creative projects.
                 </p>
                 <p>
-                  Our AU prop money is designed to closely resemble real currency while remaining clearly marked as a prop, making it ideal for safe and legal use in productions, educational demonstrations, and stage performances.
+                  Our AU prop money is designed to closely resemble real currency, making it ideal for safe and legal use in productions, educational demonstrations, and stage performances.
                 </p>
                 <p>
                   Whether you need bulk orders or small sets, we are your reliable source for prop money designed for realism, consistency, and professional presentation. We make it easy to order, with fast processing and secure packaging to ensure your items arrive safely.
@@ -187,7 +187,7 @@ export default function Home() {
               <CheckCircle2 className="w-6 h-6 text-emerald-500 mb-4" />
               <h4 className="font-bold text-slate-100 text-xs uppercase mb-2">Legal Compliance</h4>
               <p className="text-slate-400 text-[11px] leading-relaxed">
-                Clearly marked as a copy or cinematic prop to remain in strict alignment with federal reproduction policies.
+                Designed to fully align with standard guidelines for safe reproduction and lawful theatrical use.
               </p>
             </div>
           </div>

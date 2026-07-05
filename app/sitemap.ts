@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { products, categories } from '@/lib/products';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://australianpropmoney.com.au';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.australianpropmoney.com.au';
   
   const staticPages = [
     '',
