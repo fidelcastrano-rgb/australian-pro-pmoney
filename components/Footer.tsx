@@ -5,7 +5,7 @@ import Image from "next/image";
 export function Footer() {
   return (
     <footer id="app-footer" className="bg-slate-950 text-slate-400 py-16 border-t border-slate-900 select-none">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 mb-12">
         <div>
           <div className="flex items-center gap-2.5 mb-4">
             <div className="relative w-8 h-8 rounded-full overflow-hidden border border-slate-800 flex items-center justify-center bg-slate-900 shrink-0">
@@ -24,11 +24,17 @@ export function Footer() {
           </p>
         </div>
         <div>
-          <h4 className="text-white font-extrabold tracking-tight text-sm uppercase mb-4">Navigations</h4>
+          <h4 className="text-white font-extrabold tracking-tight text-sm uppercase mb-4">Quick Links</h4>
           <ul className="text-sm flex flex-col gap-2.5">
             <li><Link href="/" className="hover:text-emerald-400 transition-colors">Home</Link></li>
             <li><Link href="/#shop" className="hover:text-emerald-400 transition-colors">Prop Shop</Link></li>
+            <li><Link href="/categories" className="hover:text-emerald-400 transition-colors">Categories</Link></li>
             <li><Link href="/about" className="hover:text-emerald-400 transition-colors">About Us</Link></li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="text-white font-extrabold tracking-tight text-sm uppercase mb-4">Resources</h4>
+          <ul className="text-sm flex flex-col gap-2.5">
             <li><Link href="/faq" className="hover:text-emerald-400 transition-colors">FAQs</Link></li>
             <li><Link href="/blog" className="hover:text-emerald-400 transition-colors">Blog</Link></li>
             <li><Link href="/gallery" className="hover:text-emerald-400 transition-colors">Video Gallery</Link></li>

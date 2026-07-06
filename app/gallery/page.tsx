@@ -193,6 +193,8 @@ export default function VideoGalleryPage() {
                 onTimeUpdate={handleTimeUpdate}
                 onLoadedMetadata={handleLoadedMetadata}
                 onClick={togglePlay}
+                onContextMenu={(e) => e.preventDefault()}
+                controlsList="nodownload"
                 muted={isMuted}
                 loop
                 playsInline
