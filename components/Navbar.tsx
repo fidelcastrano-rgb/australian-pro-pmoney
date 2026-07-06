@@ -72,24 +72,24 @@ export function Navbar() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="md:hidden hover:text-emerald-600 transition-colors"
           >
-            <Menu className="w-6 h-6" />
+            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
-      </nav>
 
-      {/* Mobile Menu Dropdown */}
-      {isMobileMenuOpen && (
-        <div id="mobile-menu" className="md:hidden bg-white border-b border-slate-200 px-6 py-4 flex flex-col gap-4 text-sm font-semibold text-slate-600 animate-in slide-in-from-top duration-200">
-          <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">Home</Link>
-          <Link href="/#shop" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">Shop</Link>
-          <Link href="/categories" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">Categories</Link>
-          <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">About Us</Link>
-          <Link href="/faq" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">FAQs</Link>
-          <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">Blog</Link>
-          <Link href="/gallery" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">Videos</Link>
-          <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">Contact</Link>
-        </div>
-      )}
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+          <div id="mobile-menu" className="md:hidden absolute top-16 left-0 w-full bg-white border-b border-slate-200 px-6 py-4 flex flex-col gap-4 text-sm font-semibold text-slate-600 animate-in slide-in-from-top duration-200 shadow-xl">
+            <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">Home</Link>
+            <Link href="/#shop" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">Shop</Link>
+            <Link href="/categories" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">Categories</Link>
+            <Link href="/about" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">About Us</Link>
+            <Link href="/faq" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">FAQs</Link>
+            <Link href="/blog" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">Blog</Link>
+            <Link href="/gallery" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">Videos</Link>
+            <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="hover:text-emerald-600 py-1">Contact</Link>
+          </div>
+        )}
+      </nav>
 
       {/* Cart Drawer Backdrop */}
       {isCartOpen && (
