@@ -99,7 +99,7 @@ export default function CheckoutPage() {
 
       if (response.ok && data.success) {
         if (mode === "whatsapp") {
-          const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+61485958620";
+          const rawNumber = "+61485958620";
           const whatsappNumber = rawNumber.replace(/[^0-9+]/g, "");
           const itemsText = items.map(item => `- ${item.product.name} (${item.variation.name}) x ${item.quantity} - $${(item.variation.price * item.quantity).toFixed(2)}`).join("\n");
           

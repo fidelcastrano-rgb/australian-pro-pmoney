@@ -15,7 +15,7 @@ export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
-  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+61485958620";
+  const rawNumber = "+61485958620";
   const whatsappNumber = rawNumber.replace(/[^0-9+]/g, "");
 
   const handleInputChange = (
