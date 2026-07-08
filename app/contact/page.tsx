@@ -15,7 +15,7 @@ export default function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
-  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+447341056054";
+  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+61485958620";
   const whatsappNumber = rawNumber.replace(/[^0-9+]/g, "");
 
   const handleInputChange = (
@@ -104,7 +104,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-xs text-slate-400 uppercase tracking-wider">Direct WhatsApp Line</h4>
-                    <p className="text-sm text-slate-100 font-medium mt-1">+44 7341 056054</p>
+                    <p className="text-sm text-slate-100 font-medium mt-1">+61 485 958 620</p>
                   </div>
                 </div>
               </div>

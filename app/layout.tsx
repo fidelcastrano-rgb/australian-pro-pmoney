@@ -55,7 +55,7 @@ export default function RootLayout({
     "logo": "https://www.australianpropmoney.com.au/logoo.webp",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+447341056054",
+      "telephone": "+61485958620",
       "contactType": "customer service"
     }
   };

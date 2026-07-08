@@ -20,7 +20,7 @@ export function WhatsAppWidget() {
 
   if (!isClient) return null;
 
-  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+447341056054";
+  const rawNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "+61485958620";
   const whatsappNumber = rawNumber.replace(/[^0-9+]/g, "");
 
   const handleOpenWidget = () => {
