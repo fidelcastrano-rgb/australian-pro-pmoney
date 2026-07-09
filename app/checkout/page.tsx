@@ -434,9 +434,9 @@ export default function CheckoutPage() {
                 <span className="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">4</span>
                 Payment Method
               </h2>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-6">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 mb-6">
                 
-                {["Bitcoin (BTC)", "USDT", "Ethereum (ETH)", "PayID"].map((pMethod) => (
+                {["Bitcoin (BTC)", "USDT", "Ethereum (ETH)", "Bank Transfer", "PayID"].map((pMethod) => (
                   <button
                     key={pMethod}
                     type="button"
