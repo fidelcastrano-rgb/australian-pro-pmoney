@@ -24,16 +24,22 @@ export async function POST(req: NextRequest) {
     // Prepare dispatch emails
     const resend = getResendClient();
     const emailFrom = process.env.EMAIL_FROM || "onboarding@resend.dev";
-    const emailAdmin = process.env.EMAIL_ADMIN || "order@australianpropmoney.com.au";
+    
+    const rawAdmin = process.env.EMAIL_ADMIN || "order@australianpropmoney.com.au";
+    const adminEmails = rawAdmin
+      .split(",")
+      .map((e) => e.trim())
+      .filter((e) => e.length > 0);
 
     let emailSent = false;
 
     if (resend) {
       try {
         // Send notification email to the admin
-        await resend.emails.send({
+        const { data, error } = await resend.emails.send({
           from: `Aus Prop Money Contact Form <${emailFrom}>`,
-          to: emailAdmin,
+          to: adminEmails,
+          replyTo: email,
           subject: `New Contact Inquiry: ${inquiryType} from ${name}`,
           html: `
             <div style="font-family: sans-serif; color: #1e293b; max-width: 600px; margin: 0 auto; border: 1px solid #cbd5e1; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);">
@@ -73,8 +79,13 @@ export async function POST(req: NextRequest) {
             </div>
           `,
         });
-        emailSent = true;
-        console.log(`Contact form email successfully sent to admin ${emailAdmin}.`);
+
+        if (error) {
+          console.error("Failed to send contact notification email (Resend API):", error);
+        } else {
+          emailSent = true;
+          console.log(`Contact form email successfully sent to admin (${adminEmails.join(", ")}):`, data);
+        }
       } catch (emailError) {
         console.error("Failed to send contact notification email:", emailError);
       }

@@ -88,7 +88,13 @@ export async function POST(req: NextRequest) {
     // 2. Dispatch Emails via Resend if configured
     const resend = getResendClient();
     const emailFrom = process.env.EMAIL_FROM || "onboarding@resend.dev";
-    const emailAdmin = process.env.EMAIL_ADMIN || "order@australianpropmoney.com.au";
+    
+    // Parse admin email address(es) into a clean array
+    const rawAdmin = process.env.EMAIL_ADMIN || "order@australianpropmoney.com.au";
+    const adminEmails = rawAdmin
+      .split(",")
+      .map((e) => e.trim())
+      .filter((e) => e.length > 0);
 
     const itemsMarkupString = items
       .map(
@@ -108,9 +114,10 @@ export async function POST(req: NextRequest) {
     if (resend) {
       // Send Customer Order Review Email
       try {
-        await resend.emails.send({
+        const { data: custData, error: custError } = await resend.emails.send({
           from: `Aus Prop Money <${emailFrom}>`,
           to: email,
+          replyTo: adminEmails[0] || "order@australianpropmoney.com.au",
           subject: `We are reviewing your order ${orderNumber}`,
           html: `
             <div style="font-family: sans-serif; color: #1e293b; max-width: 600px; margin: 0 auto; border: 1px solid #cbd5e1; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);">
@@ -173,16 +180,22 @@ export async function POST(req: NextRequest) {
             </div>
           `,
         });
-        console.log(`Order review email successfully sent to customer: ${email}`);
+
+        if (custError) {
+          console.error("Customer Email Send Error (Resend API):", custError);
+        } else {
+          console.log(`Order review email successfully sent to customer: ${email}`, custData);
+        }
       } catch (custEmailError) {
-        console.error("Customer Email Send Error:", custEmailError);
+        console.error("Customer Email Send Exception:", custEmailError);
       }
 
       // Send Admin Notification Email
       try {
-        await resend.emails.send({
+        const { data: adminData, error: adminError } = await resend.emails.send({
           from: `Aus Prop Money System <${emailFrom}>`,
-          to: emailAdmin,
+          to: adminEmails,
+          replyTo: email,
           subject: `🚨 NEW PROP ORDER LOGGED: ${orderNumber}`,
           html: `
             <div style="font-family: sans-serif; color: #1e293b; max-width: 600px; margin: 0 auto; border: 1px solid #f1f5f9; border-radius: 8px; overflow: hidden;">
@@ -231,9 +244,19 @@ export async function POST(req: NextRequest) {
             </div>
           `,
         });
-        console.log(`Admin order alert successfully dispatched to: ${emailAdmin}`);
+
+        if (adminError) {
+          console.error("Admin Email Send Error (Resend API):", adminError);
+          if (emailFrom === "onboarding@resend.dev") {
+            console.warn(
+              "Notice: Resend's testing domain (onboarding@resend.dev) only allows sending emails to your verified account email. Please verify your custom domain in Resend and configure EMAIL_FROM & EMAIL_ADMIN in environment variables."
+            );
+          }
+        } else {
+          console.log(`Admin order alert successfully dispatched to: ${adminEmails.join(", ")}`, adminData);
+        }
       } catch (adminEmailError) {
-        console.error("Admin Email Send Error:", adminEmailError);
+        console.error("Admin Email Send Exception:", adminEmailError);
       }
     }
 
