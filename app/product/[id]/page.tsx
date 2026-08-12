@@ -149,7 +149,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                     </button>
                   </div>
                   <div className="text-xs text-slate-400">
-                    {currentVariation.name.toLowerCase().includes("stack") ? "Total stacks in order:" : "Total notes in order:"} <span className="font-bold text-slate-600">{quantity * Number(currentVariation.name.match(/\d+/)?.[0] || 1)}</span>
+                    {currentVariation.name.toLowerCase().includes("stack") ? "Total stacks in order:" : "Total notes in order:"} <span className="font-bold text-slate-600">{quantity * (Number(currentVariation.name.match(/^(\d+)\s+Stack/i)?.[1]) || 1)}</span>
                   </div>
                 </div>
               </div>

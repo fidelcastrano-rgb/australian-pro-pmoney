@@ -42,6 +42,7 @@ export const products: Product[] = [
     categoryId: "old-notes",
     tag: "Popular",
     variations: [
+      { name: "Starter Stack ($1500)", price: 115 },
       { name: "1 Stack ($2,500)", price: 200 },
       { name: "5 Stacks ($12,500)", price: 850 },
       { name: "10 Stacks ($25,000)", price: 1600 },
@@ -56,6 +57,7 @@ export const products: Product[] = [
     image: "/old_$20.webp",
     categoryId: "old-notes",
     variations: [
+      { name: "Starter Stack ($1500)", price: 115 },
       { name: "1 Stack ($2,500)", price: 200 },
       { name: "5 Stacks ($12,500)", price: 850 },
       { name: "10 Stacks ($25,000)", price: 1600 },
@@ -71,6 +73,7 @@ export const products: Product[] = [
     categoryId: "old-notes",
     tag: "Best Seller",
     variations: [
+      { name: "Starter Stack ($1500)", price: 115 },
       { name: "1 Stack ($2,500)", price: 200 },
       { name: "5 Stacks ($12,500)", price: 850 },
       { name: "10 Stacks ($25,000)", price: 1600 },
@@ -85,6 +88,7 @@ export const products: Product[] = [
     image: "/old_$100.webp",
     categoryId: "old-notes",
     variations: [
+      { name: "Starter Stack ($1500)", price: 115 },
       { name: "1 Stack ($2,500)", price: 200 },
       { name: "5 Stacks ($12,500)", price: 850 },
       { name: "10 Stacks ($25,000)", price: 1600 },
@@ -100,6 +104,7 @@ export const products: Product[] = [
     image: "/$5.webp",
     categoryId: "new-notes",
     variations: [
+      { name: "Starter Stack ($1500)", price: 115 },
       { name: "1 Stack ($2,000)", price: 200 },
       { name: "5 Stacks ($10,000)", price: 850 },
       { name: "10 Stacks ($20,000)", price: 1600 },
@@ -115,6 +120,7 @@ export const products: Product[] = [
     categoryId: "new-notes",
     tag: "New",
     variations: [
+      { name: "Starter Stack ($1500)", price: 115 },
       { name: "1 Stack ($2,000)", price: 200 },
       { name: "5 Stacks ($10,000)", price: 850 },
       { name: "10 Stacks ($20,000)", price: 1600 },
@@ -129,6 +135,7 @@ export const products: Product[] = [
     image: "/$20.webp",
     categoryId: "new-notes",
     variations: [
+      { name: "Starter Stack ($1500)", price: 115 },
       { name: "1 Stack ($2,000)", price: 200 },
       { name: "5 Stacks ($10,000)", price: 850 },
       { name: "10 Stacks ($20,000)", price: 1600 },
@@ -144,6 +151,7 @@ export const products: Product[] = [
     categoryId: "new-notes",
     tag: "Best Seller",
     variations: [
+      { name: "Starter Stack ($1500)", price: 115 },
       { name: "1 Stack ($2,000)", price: 200 },
       { name: "5 Stacks ($10,000)", price: 850 },
       { name: "10 Stacks ($20,000)", price: 1600 },
@@ -159,6 +167,7 @@ export const products: Product[] = [
     categoryId: "new-notes",
     tag: "Exclusive",
     variations: [
+      { name: "Starter Stack ($1500)", price: 115 },
       { name: "1 Stack ($2,000)", price: 200 },
       { name: "5 Stacks ($10,000)", price: 850 },
       { name: "10 Stacks ($20,000)", price: 1600 },
