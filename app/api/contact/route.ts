@@ -64,7 +64,15 @@ export async function POST(req: NextRequest) {
       `,
     });
 
-    return NextResponse.json({ success: true, emailSent: result.success });
+    if (!result.success) {
+      console.error("[Contact API] Email dispatch failed:", result.error);
+      return NextResponse.json(
+        { error: result.error || "Failed to dispatch email message via Zoho SMTP." },
+        { status: 500 }
+      );
+    }
+
+    return NextResponse.json({ success: true, emailSent: true });
   } catch (err: any) {
     console.error("Contact Form API Error:", err);
     return NextResponse.json({ error: err.message || "Internal server error" }, { status: 500 });

@@ -62,6 +62,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
                 alt={product.name}
                 fill
                 priority
+                sizes="(max-width: 1024px) 100vw, 60vw"
                 className="object-cover z-10"
                 referrerPolicy="no-referrer"
               />

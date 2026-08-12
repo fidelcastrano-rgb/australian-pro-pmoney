@@ -20,8 +20,13 @@ export function getMailTransporter(): nodemailer.Transporter | null {
 
   const user = process.env.ZOHO_USER || process.env.SMTP_USER || process.env.EMAIL_USER;
   const pass = process.env.ZOHO_PASSWORD || process.env.ZOHO_APP_PASSWORD || process.env.SMTP_PASSWORD;
-  const host = process.env.ZOHO_HOST || process.env.SMTP_HOST || "smtppro.zoho.com";
-  const port = parseInt(process.env.ZOHO_PORT || process.env.SMTP_PORT || "465", 10);
+  const host = process.env.ZOHO_HOST || process.env.SMTP_HOST || "smtp.zoho.com";
+  let port = parseInt(process.env.ZOHO_PORT || process.env.SMTP_PORT || "465", 10);
+
+  // Normalize invalid ports (e.g., 485) to standard Zoho SSL port 465 or TLS 587
+  if (port !== 465 && port !== 587 && port !== 25) {
+    port = 465;
+  }
   const secure = port === 465;
 
   if (!user || !pass) {
@@ -42,6 +47,9 @@ export function getMailTransporter(): nodemailer.Transporter | null {
     tls: {
       rejectUnauthorized: false, // Prevents certificate mismatches on custom domains
     },
+    connectionTimeout: 10000, // 10s connection timeout
+    greetingTimeout: 10000,
+    socketTimeout: 15000,
   });
 
   return transporterInstance;
@@ -76,6 +84,14 @@ Subject: ${options.subject}`);
     return { success: true, messageId: info.messageId };
   } catch (error: any) {
     console.error("[Zoho SMTP Error] Failed to send email:", error.message || error);
+    transporterInstance = null; // Reset transporter instance on error so env variable changes take effect on retry
+    if (error.code === "EAUTH" || (error.message && error.message.includes("535"))) {
+      console.warn(
+        "💡 [Zoho SMTP Tip] 535 Authentication Failed. Please verify:\n" +
+        "  1. ZOHO_USER is your full Zoho email address (e.g., sales@australianpropmoney.com.au)\n" +
+        "  2. ZOHO_PASSWORD is an Application-Specific App Password generated in Zoho Accounts (Security -> App Passwords) if 2FA is active."
+      );
+    }
     return { success: false, error: error.message || "Failed to dispatch email via Zoho SMTP" };
   }
 }
