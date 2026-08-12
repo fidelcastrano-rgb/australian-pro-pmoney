@@ -116,6 +116,7 @@ export default function CounterfeitMoneyAustraliaPage() {
             src="/uv_counterfeit_detector.jpg"
             alt="Advanced ultraviolet counterfeit money detector scanning polymer notes"
             fill
+            unoptimized
             className="object-cover"
             priority
             referrerPolicy="no-referrer"
@@ -313,6 +314,7 @@ export default function CounterfeitMoneyAustraliaPage() {
                 src="/bank_counting_machine.jpg"
                 alt="Professional corporate high-speed banknote counting machine checking currency features"
                 fill
+                unoptimized
                 className="object-cover"
                 referrerPolicy="no-referrer"
               />

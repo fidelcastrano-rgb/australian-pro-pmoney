@@ -97,6 +97,7 @@ export default function BlogIndexPage() {
             src="/heero.jpg"
             alt="Cinematic production studio lighting"
             fill
+            unoptimized
             className="object-cover"
             priority
             referrerPolicy="no-referrer"
@@ -132,6 +133,7 @@ export default function BlogIndexPage() {
               src="/heero.jpg"
               alt="Movie camera shooting a pile of currency"
               fill
+              unoptimized
               className="object-cover"
               referrerPolicy="no-referrer"
             />
@@ -198,6 +200,7 @@ export default function BlogIndexPage() {
                       src={post.image}
                       alt={post.title}
                       fill
+                      unoptimized
                       className="object-cover"
                       referrerPolicy="no-referrer"
                     />
