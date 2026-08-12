@@ -53,6 +53,9 @@ function ProductCard({ product }: { product: typeof products[0] }) {
           <p className="text-slate-500 text-xs line-clamp-2 leading-relaxed">
             {product.description}
           </p>
+          <div className="mt-2 text-[10px] text-emerald-700 font-semibold bg-emerald-50 border border-emerald-200/80 rounded px-2 py-1 inline-block">
+            ✓ Double Sided • Polymer Paper • Machine & Pen Test Passed
+          </div>
         </div>
         
         <div className="mt-auto">
@@ -113,7 +116,7 @@ export function ProductGrid({ initialCategory = "all" }: { initialCategory?: str
           <h2 className="text-3xl md:text-4xl text-slate-900 font-extrabold mb-4 tracking-tight">Cinema Prop Banknotes</h2>
           <div className="w-16 h-1 bg-emerald-500 mx-auto mb-6 rounded-full"></div>
           <p className="text-slate-600 max-w-2xl mx-auto text-sm leading-relaxed">
-            All banknote stacks meet strict legal disclaimers. Hand-packaged prop money bundles ready for production use.
+            Our prop money notes are printed double sided with authentic polymer paper and pass all machine and Pen Test. Hand-packaged prop money bundles ready for production use.
           </p>
         </div>
 

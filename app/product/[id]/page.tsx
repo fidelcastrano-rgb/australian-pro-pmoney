@@ -72,7 +72,7 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
               <ShieldAlert className="w-5 h-5 text-amber-500 shrink-0 mt-0.5" />
               <div>
                 <span className="font-bold text-slate-700 block mb-1">PROMOTION & THEATRICAL SAFETY MARKS</span>
-                Our banknotes feature legal alterations to ensure safe cinema production. They are completely legal to own, purchase, transport, and use in qualified performances.
+                Our prop money notes are printed double sided with authentic polymer paper and pass all machine and Pen Test. They are completely legal to own, purchase, transport, and use in qualified performances.
               </div>
             </div>
           </div>
@@ -91,6 +91,18 @@ export default function ProductPage({ params }: { params: Promise<{ id: string }
               <p className="text-slate-500 text-xs mt-2 font-medium leading-relaxed">
                 Cinema-grade Australian currency prop bundle. Hand-wrapped with premium legal currency wrappers.
               </p>
+
+              {/* Key Highlights Badge */}
+              <div className="my-4 p-3 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-900 text-xs font-semibold space-y-1">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Printed double sided with authentic polymer paper</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>Passes all machine and Pen Test</span>
+                </div>
+              </div>
 
               {/* Price Indicator */}
               <div className="my-6 p-4 bg-emerald-50/50 border border-emerald-100 rounded-xl flex justify-between items-center">

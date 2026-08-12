@@ -71,9 +71,9 @@ export default function AboutPage() {
               <li className="flex items-start gap-3.5">
                 <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-slate-100">1:1 Exact Size Replication</h4>
+                  <h4 className="font-bold text-slate-100">Double-Sided Polymer Paper</h4>
                   <p className="text-slate-400 text-xs mt-1">
-                    Every prop banknote features the exact physical dimensions of genuine currency, ensuring authentic handling in-hand and on camera.
+                    Our prop money notes are printed double sided with authentic polymer paper for unmatched realism and tactile perfection.
                   </p>
                 </div>
               </li>
@@ -82,16 +82,16 @@ export default function AboutPage() {
                 <div>
                   <h4 className="font-bold text-slate-100">Pen & Machine Test Compliance</h4>
                   <p className="text-slate-400 text-xs mt-1">
-                    Incorporates specialized material markings and holograms designed to satisfy standard detector pens and automatic count machines.
+                    Engineered to pass all machine and Pen Test procedures effortlessly while maintaining full legal compliance.
                   </p>
                 </div>
               </li>
               <li className="flex items-start gap-3.5">
                 <CheckCircle className="w-5 h-5 text-emerald-500 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-slate-100">8K Cinematic Texture</h4>
+                  <h4 className="font-bold text-slate-100">8K Cinematic Quality</h4>
                   <p className="text-slate-400 text-xs mt-1">
-                    Printed using premium offset lithography on high-grade custom substrate mimicking next-gen Australian polymer weight and rigidity.
+                    Printed using premium offset lithography with 1:1 genuine size and high-fidelity holographic elements for cinema production.
                   </p>
                 </div>
               </li>

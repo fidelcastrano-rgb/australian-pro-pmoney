@@ -28,7 +28,7 @@ export function Hero() {
             For Cinema & Production
           </h1>
           <p className="text-slate-300 text-lg md:text-xl leading-relaxed mb-8 max-w-lg">
-            High-fidelity, camera-optimized Australian prop money reproductions designed exclusively for motion pictures, television, theatrical productions, and commercial training.
+            High-fidelity, camera-optimized Australian prop money reproductions. All notes are printed double sided with authentic polymer paper and pass all machine and Pen Test.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link 
@@ -55,15 +55,15 @@ export function Hero() {
           <ul className="text-sm text-slate-400 flex flex-col gap-3.5">
             <li className="flex items-start gap-2.5">
               <span className="text-emerald-500 mt-0.5">&bull;</span>
-              <span>Replicas feature the exact size of genuine tender, complete markings, and premium holograms.</span>
+              <span>Our prop money notes are printed double sided with authentic polymer paper.</span>
             </li>
             <li className="flex items-start gap-2.5">
               <span className="text-emerald-500 mt-0.5">&bull;</span>
-              <span>Offset lithography printing to ensure banknotes pass standard pen and machine tests effortlessly.</span>
+              <span>Passes all machine and Pen Test effortlessly.</span>
             </li>
             <li className="flex items-start gap-2.5">
               <span className="text-emerald-500 mt-0.5">&bull;</span>
-              <span>Optimized color grading and print density to ensure flawless realism on standard 8K digital cinema sensors.</span>
+              <span>Replicas feature 1:1 genuine dimensions, complete markings, and high-fidelity holograms for 8K cinema.</span>
             </li>
           </ul>
         </div>

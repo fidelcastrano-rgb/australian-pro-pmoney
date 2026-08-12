@@ -23,7 +23,7 @@ export default function Home() {
               <div className="w-16 h-1 bg-amber-500 mb-8 rounded-full"></div>
               <div className="text-slate-600 space-y-5 text-sm leading-relaxed">
                 <p>
-                  Looking for Australian prop money that looks realistic, professional, and perfect for film, photography, training, or entertainment use? We provide premium-grade prop money Australia customers trust for high-quality visual production and creative projects.
+                  Looking for Australian prop money that looks realistic, professional, and perfect for film, photography, training, or entertainment use? We provide premium-grade prop money Australia customers trust. Our prop money notes are printed double sided with authentic polymer paper and pass all machine and Pen Test.
                 </p>
                 <p>
                   Our AU prop money is designed to closely resemble real currency, making it ideal for safe and legal use in productions, educational demonstrations, and stage performances.
@@ -153,17 +153,17 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
             <div className="bg-slate-950/60 p-6 rounded-xl border border-slate-800">
               <CheckCircle2 className="w-6 h-6 text-emerald-500 mb-4" />
-              <h4 className="font-bold text-slate-100 text-xs uppercase mb-2">High Resolution</h4>
+              <h4 className="font-bold text-slate-100 text-xs uppercase mb-2">Double-Sided Polymer</h4>
               <p className="text-slate-400 text-[11px] leading-relaxed">
-                Stunning high-resolution offset print quality that holds up beautifully on standard 8K cinematic lenses.
+                Our prop money notes are printed double sided with authentic polymer paper for unmatched realism.
               </p>
             </div>
 
             <div className="bg-slate-950/60 p-6 rounded-xl border border-slate-800">
               <CheckCircle2 className="w-6 h-6 text-emerald-500 mb-4" />
-              <h4 className="font-bold text-slate-100 text-xs uppercase mb-2">Realistic Texture</h4>
+              <h4 className="font-bold text-slate-100 text-xs uppercase mb-2">Pen & Machine Tested</h4>
               <p className="text-slate-400 text-[11px] leading-relaxed">
-                Tactile weight, rigidity, and color accuracy formulated to mimic physical polymer and paper bills.
+                Engineered to pass all machine and Pen Test procedures seamlessly during testing & demonstrations.
               </p>
             </div>
 
@@ -242,7 +242,7 @@ export default function Home() {
               </div>
               <h3 className="font-bold text-slate-800 text-sm uppercase mb-2">Legal Specifications</h3>
               <p className="text-slate-500 text-xs leading-relaxed">
-                Replicas feature the exact size of the genuine tender and all markings and holograms to pass pen test and machine test.
+                Our prop money notes are printed double sided with authentic polymer paper and pass all machine and Pen Test. Replicas feature exact 1:1 genuine size and full holographic details.
               </p>
             </div>
 

@@ -37,7 +37,7 @@ export const products: Product[] = [
   {
     id: "buy-prop-money-old-currency-10-australian-banknotes",
     name: "Buy Prop Money Old Currency $10 Australian banknotes - Prop Money Note",
-    description: "Buy prop money 10 Australian Dollar notes. High-quality replicas with UV markings, holograms, and security threads for educational training, props, and financial system testing.",
+    description: "Buy prop money 10 Australian Dollar notes. Printed double sided with authentic polymer paper, passing all machine and Pen Test. Ideal for educational training, production props, and financial system testing.",
     image: "/old_$10.webp",
     categoryId: "old-notes",
     tag: "Popular",
@@ -53,7 +53,7 @@ export const products: Product[] = [
   {
     id: "buy-prop-money-old-currency-20-australian-dollar-notes",
     name: "Buy Prop Money Old Currency $20 Australian Dollar Notes - Prop Money Note",
-    description: "Buy prop money 20 Australian Dollar notes. High-quality replicas with UV markings, watermarks, and color-shifting inks for educational training, props, and financial system testing.",
+    description: "Buy prop money 20 Australian Dollar notes. Printed double sided with authentic polymer paper, passing all machine and Pen Test. Ideal for educational training, production props, and financial system testing.",
     image: "/old_$20.webp",
     categoryId: "old-notes",
     variations: [
@@ -68,7 +68,7 @@ export const products: Product[] = [
   {
     id: "buy-prop-money-old-currency-50-australian-dollar-notes",
     name: "Buy Prop Money Old Currency $50 Australian Dollar Notes - Prop Money Note",
-    description: "Buy prop money 50 Australian Dollar notes. Realistic replicas with watermarks, holograms, and UV features for educational training, props, and financial system testing.",
+    description: "Buy prop money 50 Australian Dollar notes. Printed double sided with authentic polymer paper, passing all machine and Pen Test. Ideal for educational training, production props, and financial system testing.",
     image: "/old_$50.webp",
     categoryId: "old-notes",
     tag: "Best Seller",
@@ -84,7 +84,7 @@ export const products: Product[] = [
   {
     id: "buy-prop-money-old-currency-100-australian-dollar-notes",
     name: "Buy Prop Money Old Currency $100 Australian Dollar Notes - Prop Money Note",
-    description: "Buy prop money 100 Australian Dollar notes. Realistic replicas with holograms, watermarks, and UV features for educational training, props, and financial system testing.",
+    description: "Buy prop money 100 Australian Dollar notes. Printed double sided with authentic polymer paper, passing all machine and Pen Test. Ideal for educational training, production props, and financial system testing.",
     image: "/old_$100.webp",
     categoryId: "old-notes",
     variations: [
@@ -100,7 +100,7 @@ export const products: Product[] = [
   {
     id: "buy-prop-money-new-5-australian-dollar-notes",
     name: "Buy Prop Money New $5 Australian Dollar Notes - Prop Money Note",
-    description: "Buy prop money 5 Australian Dollar notes. High-quality replicas with holograms, watermarks, and UV features for educational training, props, and financial system testing.",
+    description: "Buy prop money 5 Australian Dollar notes. Printed double sided with authentic polymer paper, passing all machine and Pen Test. Ideal for educational training, production props, and financial system testing.",
     image: "/$5.webp",
     categoryId: "new-notes",
     variations: [
@@ -115,7 +115,7 @@ export const products: Product[] = [
   {
     id: "buy-prop-money-new-10-australian-banknotes",
     name: "Buy Prop Money New $10 Australian banknotes - Prop Money Note",
-    description: "Buy prop money 10 Australian Dollar notes. High-quality replicas with UV markings, holograms, and security threads for educational training, props, and financial system testing.",
+    description: "Buy prop money 10 Australian Dollar notes. Printed double sided with authentic polymer paper, passing all machine and Pen Test. Ideal for educational training, production props, and financial system testing.",
     image: "/$10.webp",
     categoryId: "new-notes",
     tag: "New",
@@ -131,7 +131,7 @@ export const products: Product[] = [
   {
     id: "buy-prop-money-new-20-australian-dollar-notes",
     name: "Buy Prop Money New $20 Australian Dollar Notes - Prop Money Note",
-    description: "Buy prop money 20 Australian Dollar notes. High-quality replicas with UV markings, watermarks, and color-shifting inks for educational training, props, and financial system testing.",
+    description: "Buy prop money 20 Australian Dollar notes. Printed double sided with authentic polymer paper, passing all machine and Pen Test. Ideal for educational training, production props, and financial system testing.",
     image: "/$20.webp",
     categoryId: "new-notes",
     variations: [
@@ -146,7 +146,7 @@ export const products: Product[] = [
   {
     id: "buy-prop-money-new-50-australian-dollar-notes",
     name: "Buy Prop Money New $50 Australian Dollar Notes - Prop Money Note",
-    description: "Buy prop money 50 Australian Dollar notes. Realistic replicas with watermarks, holograms, and UV features for educational training, props, and financial system testing.",
+    description: "Buy prop money 50 Australian Dollar notes. Printed double sided with authentic polymer paper, passing all machine and Pen Test. Ideal for educational training, production props, and financial system testing.",
     image: "/$50.webp",
     categoryId: "new-notes",
     tag: "Best Seller",
@@ -162,7 +162,7 @@ export const products: Product[] = [
   {
     id: "buy-prop-money-new-100-australian-dollar-notes",
     name: "Buy Prop Money New $100 Australian Dollar Notes - Prop Money Note",
-    description: "Buy prop money 100 Australian Dollar notes. Realistic replicas with holograms, watermarks, and UV features for educational training, props, and financial system testing.",
+    description: "Buy prop money 100 Australian Dollar notes. Printed double sided with authentic polymer paper, passing all machine and Pen Test. Ideal for educational training, production props, and financial system testing.",
     image: "/$100.webp",
     categoryId: "new-notes",
     tag: "Exclusive",

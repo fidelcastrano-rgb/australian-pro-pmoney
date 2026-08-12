@@ -20,7 +20,7 @@ export function Footer() {
             <h4 className="text-white font-extrabold tracking-tight text-lg uppercase italic">AUS PROP MONEY</h4>
           </div>
           <p className="text-sm leading-relaxed max-w-sm text-slate-400">
-            Providing high-fidelity, cinema-compliant Australian prop banknotes to movie productions, commercials, television studios, and safety instructors nationwide.
+            Our prop money notes are printed double sided with authentic polymer paper and pass all machine and Pen Test. Supplying cinema-compliant Australian prop banknotes nationwide.
           </p>
         </div>
         <div>

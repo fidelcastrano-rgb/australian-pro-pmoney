@@ -33,11 +33,11 @@ export default function FAQPage() {
       questions: [
         {
           q: "Do these notes pass detector pen tests?",
-          a: "Yes. Our notes are manufactured using specialized, starch-free offset lithography paper-polymer substrate. Because of this, they pass standard iodine-based counterfeit detector pen tests, registering a golden pass color instead of turning black like low-quality printer paper."
+          a: "Yes. Our prop money notes are printed double sided with authentic polymer paper and pass all machine and Pen Test procedures effortlessly."
         },
         {
           q: "Do they pass currency counting machine tests?",
-          a: "Yes. Because our banknotes share the exact dimensions (1:1), correct weight distribution, and tactile rigidity of real notes, they flow smoothly through standard commercial currency counters and automatic banknote tellers without jamming or raising weight triggers."
+          a: "Yes. Our prop money notes are printed double sided with authentic polymer paper and pass all machine and Pen Test checks, flowing smoothly through commercial currency counters without jamming or triggering density errors."
         },
         {
           q: "What printing technology is used to print the money?",
