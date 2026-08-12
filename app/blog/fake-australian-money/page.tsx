@@ -115,7 +115,6 @@ export default function FakeAustralianMoneyPage() {
             src="/australian_polymer_note.jpg"
             alt="Stylized modern Australian polymer currency notes showing advanced security features"
             fill
-            unoptimized
             className="object-cover"
             priority
             referrerPolicy="no-referrer"
@@ -296,7 +295,6 @@ export default function FakeAustralianMoneyPage() {
                 src="/security_feature_check.jpg"
                 alt="Checking security features of high-security currency under backlight inspection"
                 fill
-                unoptimized
                 className="object-cover"
                 referrerPolicy="no-referrer"
               />

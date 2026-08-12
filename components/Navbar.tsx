@@ -28,7 +28,6 @@ export function Navbar() {
                 alt="Aus Prop Money Logo"
                 fill
                 priority
-                unoptimized
                 className="object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -148,7 +147,6 @@ export function Navbar() {
                       src={item.product.image}
                       alt={item.product.name}
                       fill
-                      unoptimized
                       sizes="80px"
                       className="object-cover"
                       referrerPolicy="no-referrer"

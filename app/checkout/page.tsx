@@ -484,7 +484,6 @@ export default function CheckoutPage() {
                             src={item.product.image}
                             alt={item.product.name}
                             fill
-                            unoptimized
                             sizes="48px"
                             className="object-cover"
                             referrerPolicy="no-referrer"

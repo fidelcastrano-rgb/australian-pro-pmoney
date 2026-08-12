@@ -22,7 +22,6 @@ export default function AboutPage() {
             src="/heero.jpg"
             alt="Master Printer Workshop"
             fill
-            unoptimized
             className="object-cover"
             priority
             referrerPolicy="no-referrer"

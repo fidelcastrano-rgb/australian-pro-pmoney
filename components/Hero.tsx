@@ -12,7 +12,6 @@ export function Hero() {
           alt="Premium Prop Money Hero"
           fill
           priority
-          unoptimized
           className="object-cover"
           referrerPolicy="no-referrer"
         />

@@ -13,7 +13,6 @@ export function Footer() {
                 src="/logoo.webp"
                 alt="Aus Prop Money Logo"
                 fill
-                unoptimized
                 className="object-cover"
                 referrerPolicy="no-referrer"
               />
